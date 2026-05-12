@@ -83,6 +83,42 @@ This project currently uses:
 - `yarn lint` for code quality checks
 - `yarn build` for production build verification
 
+## Deployment
+
+This project is ready to deploy on Vercel.
+
+### Vercel Dashboard
+
+1. Import the GitHub repository into Vercel.
+2. Keep the detected framework as `Next.js`.
+3. Leave the root directory as the repository root.
+4. Deploy with the default production branch.
+
+The repository also includes `vercel.json` with:
+- `framework: nextjs`
+- `installCommand: yarn install --frozen-lockfile`
+- `buildCommand: yarn build`
+
+### Vercel CLI
+
+Install the Vercel CLI:
+
+```bash
+npm i -g vercel
+```
+
+Deploy a preview:
+
+```bash
+vercel
+```
+
+Deploy to production:
+
+```bash
+vercel --prod
+```
+
 ## Notes
 
 - Use `yarn` because `yarn.lock` is committed.
