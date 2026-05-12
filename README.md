@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ali Portfolio
+
+Personal portfolio website built with Next.js 15, React 19, TypeScript, and Tailwind CSS v4.
+
+This project showcases:
+- Hero landing section
+- Skills overview
+- Experience highlights
+- Dedicated experiences page
+- Education section
+- Projects section
+- Contact section
+
+## Tech Stack
+
+- Next.js 15 App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- ESLint
+
+## Project Structure
+
+```text
+src/
+  app/
+    experiences/
+  components/
+    layout/
+    sections/
+    ui/
+  data/
+```
+
+Key files:
+- `src/app/layout.tsx`: global layout, fonts, navbar, and shared background
+- `src/app/page.tsx`: homepage composition
+- `src/app/experiences/page.tsx`: detailed experience page
+- `src/components/sections/`: homepage and page sections
+- `src/components/ui/GridBackground.tsx`: shared grid background layer
+- `src/data/`: structured content for profile, skills, experience, and projects
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000` in your browser.
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+yarn dev
+yarn build
+yarn start
+yarn lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Most portfolio content is stored in the `src/data/` directory:
 
-## Deploy on Vercel
+- `profile.ts`
+- `skills.ts`
+- `experience.ts`
+- `projects.ts`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Update those files to change displayed text and structured portfolio content without touching section layout logic.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Validation
+
+This project currently uses:
+
+- `yarn lint` for code quality checks
+- `yarn build` for production build verification
+
+## Notes
+
+- Use `yarn` because `yarn.lock` is committed.
+- Static metadata and icons live in `src/app/`.
+- Shared visual tokens and utility classes are defined in `src/app/globals.css`.
