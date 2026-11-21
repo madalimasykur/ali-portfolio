@@ -1,0 +1,1 @@
+Skill icons from [Devicon](https://github.com/devicons/devicon), version v2.17.0, distributed under the [MIT license](https://github.com/devicons/devicon/blob/v2.17.0/LICENSE). Brand marks belong to their respective owners.

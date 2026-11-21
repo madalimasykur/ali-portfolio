@@ -1,19 +1,18 @@
 # Ali Portfolio
 
-Personal portfolio website built with Next.js 15, React 19, TypeScript, and Tailwind CSS v4.
+Personal portfolio website built with Next.js 16, React 19.3, TypeScript, and Tailwind CSS v4.
 
 This project showcases:
 - Hero landing section
 - Skills overview
-- Experience highlights
-- Dedicated experiences page
+- Full experience history and contributions on the homepage
 - Education section
 - Projects section
 - Contact section
 
 ## Tech Stack
 
-- Next.js 15 App Router
+- Next.js 16 App Router
 - React 19
 - TypeScript
 - Tailwind CSS v4
@@ -24,10 +23,10 @@ This project showcases:
 ```text
 src/
   app/
-    experiences/
   components/
     layout/
     sections/
+    cards/
     ui/
   data/
 ```
@@ -35,12 +34,17 @@ src/
 Key files:
 - `src/app/layout.tsx`: global layout, fonts, navbar, and shared background
 - `src/app/page.tsx`: homepage composition
-- `src/app/experiences/page.tsx`: detailed experience page
-- `src/components/sections/`: homepage and page sections
+- `src/components/sections/`: homepage section composition
+- `src/components/cards/`: cards for projects, experience, education, training, and skill groups
+- `src/components/ui/`: shared cards, buttons, section headings, badges, icons, lists, expandable content, and carousel
 - `src/components/ui/GridBackground.tsx`: shared grid background layer
+- `src/components/ui/Reveal.tsx`: server-rendered marker for scroll entry animations
+- `src/components/ui/RevealGroup.tsx`: shared observer for card, heading, and footer reveals
 - `src/data/`: structured content for profile, skills, experience, and projects
 
 ## Getting Started
+
+Requires Node.js 20.9 or newer. Next.js 16 stores development output in `.next/dev` and production output in `.next`. Restart an existing dev server after upgrading dependencies.
 
 Install dependencies:
 
@@ -67,6 +71,8 @@ yarn lint
 
 ## Content Management
 
+Public contact details, the CV link, social profiles, and project repository URLs live in `src/config/site.ts`. Update that file to change these values. They are intentionally public; keep secrets and deployment-specific credentials in environment variables instead. Icon asset URLs remain with skill data in `src/data/skills.ts`.
+
 Most portfolio content is stored in the `src/data/` directory:
 
 - `profile.ts`
@@ -74,9 +80,13 @@ Most portfolio content is stored in the `src/data/` directory:
 - `experience.ts`
 - `projects.ts`
 
+Content is aligned with `docs/CV-Ahmad Ali Masykur.tex`. The LaTeX document is kept as a reference; changes to it must be reflected in the data files.
+
 Update those files to change displayed text and structured portfolio content without touching section layout logic.
 
 ## Validation
+
+Cards, section headings, and the footer reveal once when entering the viewport. A shared observer staggers simultaneous entries; the hero keeps its own entrance animation. Content stays readable without JavaScript, and reduced-motion preferences disable the scroll animation. Experience details expand and collapse with a CSS grid transition.
 
 This project currently uses:
 

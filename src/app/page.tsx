@@ -1,3 +1,4 @@
+import AdditionalActivitiesSection from '@/components/sections/AdditionalActivitiesSection'
 import ContactSection from '@/components/sections/ContactSection'
 import EducationSection from '@/components/sections/EducationSection'
 import ExperienceSection from '@/components/sections/ExperienceSection'
@@ -11,8 +12,9 @@ export default function HomePage() {
       <HeroSection />
       <SkillsSection />
       <ExperienceSection />
-      <EducationSection />
       <ProjectsSection />
+      <EducationSection />
+      <AdditionalActivitiesSection />
       <ContactSection />
     </main>
   )

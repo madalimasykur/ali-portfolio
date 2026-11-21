@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import Navbar from '@/components/layout/navbar'
+import Footer from '@/components/layout/Footer'
 import GridBackground from '@/components/ui/GridBackground'
+import RevealGroup from '@/components/ui/RevealGroup'
 import './globals.css'
 
 const inter = Inter({
@@ -17,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: 'Ahmad Ali Masykur | Software Engineer',
   description:
-    'Portfolio of Ahmad Ali Masykur, Software Engineer at Bank CIMB Niaga focusing on backend systems, distributed systems, cloud engineering, and AI.',
+    'Portfolio of Ahmad Ali Masykur, Software Engineer and Backend Engineer at Bank CIMB Niaga working on banking integrations, distributed systems, observability, and AI-powered applications.',
 }
 
 export default function RootLayout({
@@ -30,7 +32,10 @@ export default function RootLayout({
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
         <GridBackground />
         <Navbar />
-        <div className="relative z-10">{children}</div>
+        <RevealGroup className="relative z-10">
+          {children}
+          <Footer />
+        </RevealGroup>
       </body>
     </html>
   )

@@ -1,141 +1,161 @@
 export type ExperienceItem = {
   slug: string
   company: string
-  companyLabel: string
-  companyLogo?: string
   role: string
-  employmentType: string
   period: string
   location: string
-  headline?: string
   summary: string
-  highlights: string[]
+  groups: { title: string; highlights: string[] }[]
   skills: string[]
 }
 
 export const experienceItems: ExperienceItem[] = [
   {
     slug: 'cimb-niaga',
-    company: 'CIMB Niaga',
-    companyLabel: 'CIMB Niaga · Apprenticeship',
-    companyLogo: '',
-    role: 'Software Engineer',
-    employmentType: 'Apprenticeship',
+    company: 'Bank CIMB Niaga',
+    role: 'Software Engineer - CIPTA IT Developer Program',
     period: 'Sep 2025 - Present',
-    location: 'South Tangerang, Banten, Indonesia · On-site',
-    headline: 'Software Engineer - CIPTA IT Developer Program',
-    summary:
-      'Selected for the CIPTA IT Developer Program and working hands-on with enterprise banking systems, backend services, integration layers, and production observability.',
-    highlights: [
-      'Built a tax reporting backend using Golang, PostgreSQL, and Redis.',
-      'Contributed to ESB integration using IBM App Connect Enterprise and IBM API Connect.',
-      'Implemented OpenTelemetry-based observability for service monitoring.',
-      'Developed a TCP pooling gateway for SIBS integration in a banking environment.',
+    location: 'Jakarta, Indonesia',
+    summary: 'Selected for the CIPTA IT Developer Program and trusted with enterprise banking work spanning backend development, system design, integration architecture, deployment, observability, and production troubleshooting.',
+    groups: [
+      {
+        title: 'SIJ - Sistem Integrasi Jalin / Tax Integration System',
+        highlights: [
+          'Owned the development of SIJ, an asynchronous, event-driven integration system connecting CIMB Niaga\'s internal banking systems with external government services for cross-border credit card tax reporting.',
+          'Partnered with ITBP and business stakeholders from project initiative and feature discussions through requirement clarification, technical decisions, and iterative feature development.',
+          'Designed the system architecture, business flows, API contracts, system boundaries, database structures, and integration patterns for a production banking service.',
+          'Built the processing flow from Kafka source events produced by core banking systems through PostgreSQL and Redis to Jalin APIs and internal CIMB Niaga ESB APIs, including validation and reliable processing.',
+          'Integrated report-file generation and delivery workflows, including report creation, SFTP transfer to CIMB Niaga MFT, and processing of files received from external SFTP systems.',
+          'Supported deployment on Podman, GKE, and RHEL Linux; implemented Kubernetes resources such as Deployments, Namespaces, Services, PersistentVolumeClaims, and CronJobs.',
+          'Integrated development and production observability with Grafana, OpenTelemetry, and OpenSearch to improve monitoring, tracing, and investigation visibility.',
+        ],
+      },
+      {
+        title: 'Matrix - Bank-wide Monitoring and Observability Platform',
+        highlights: [
+          'Helped evaluate and build an observability platform using OpenTelemetry, Grafana, Prometheus, Tempo, OpenSearch, Splunk, Datadog, Vector Agent, and OpenTelemetry Collector.',
+          'Researched the feasibility and implementation of observability tools for improving visibility across IBM ACE and IBM MQ systems; integrated bank ESB telemetry with OpenSearch.',
+        ],
+      },
+      {
+        title: 'Audit Logger - ESB Audit Service',
+        highlights: [
+          'Investigated a Java-based audit logger that frequently became stuck or stopped, evaluated rewrite and modernization options, and designed a new Golang audit-logging application integrated with IBM MQ and IBM DB2.',
+        ],
+      },
+      {
+        title: 'ESB Modernization',
+        highlights: [
+          'Supported the design of a modernization path from VM-based IBM ACE to container-based and cloud-oriented IBM webMethods on OpenShift.',
+        ],
+      },
     ],
-    skills: ['Go', 'Java', 'Redis', 'OpenTelemetry', 'IBM App Connect', 'IBM Db2', 'PostgreSQL'],
+    skills: [
+      'Golang',
+      'Kafka',
+      'PostgreSQL',
+      'Redis',
+      'IBM MQ',
+      'IBM DB2',
+      'IBM ACE',
+      'IBM API Connect',
+      'SFTP',
+      'GKE',
+      'OpenTelemetry',
+      'Grafana',
+      'OpenSearch',
+    ],
   },
   {
-    slug: 'bukit-vista-backend-ai-engineer',
+    slug: 'bukit-vista',
     company: 'Bukit Vista Hospitality Services',
-    companyLabel: 'Bukit Vista Hospitality Services · Full-time',
-    companyLogo: '',
-    role: 'Backend & AI Engineer',
-    employmentType: 'Full-time',
-    period: 'Oct 2024 - Apr 2025',
-    location: 'Bali, Indonesia · Remote',
-    summary:
-      'Owned backend and AI engineering work for partner-facing and guest-facing assistants, combining API development, message orchestration, prompt design, and operational tooling.',
-    highlights: [
-      'Led backend development for Thea, an AI chatbot connected to OpenAI and WhatsApp via SendPulse using Python and FastAPI.',
-      'Co-designed system architecture, prompt boundaries, and internal data structures for scalable AI operations.',
-      'Built queue-based request orchestration and a Slack interface for monitoring and human fallback handling.',
-      'Maintained GAIA Interface in TypeScript and improved GAIA Guest Agent integrations and reliability.',
+    role: 'Backend Engineer / Backend and AI Engineer',
+    period: 'Sep 2023 - Apr 2025',
+    location: 'Bali, Indonesia / Remote',
+    summary: '',
+    groups: [
+      {
+        title: 'Role Timeline',
+        highlights: [
+          'Backend Engineer - Intern (Sep 2023 - Dec 2023)',
+          'Backend Engineer - Part-time (Dec 2023 - Jun 2024)',
+          'Backend and AI Engineer (Oct 2024 - Apr 2025)',
+        ],
+      },
+      {
+        title: 'Key Contributions',
+        highlights: [
+          'Developed Thea, an AI chatbot agent integrated with WhatsApp via SendPulse using Python, FastAPI, and the OpenAI API to automate partnership communication, complaints, and requests.',
+          'Designed scalable backend services and messaging workflows using Python, TypeScript, Redis, and Slack integration, enabling real-time operational monitoring and logging.',
+          'Maintained and enhanced GAIA, a Guest AI Agent integrated with Airbnb via Beds24 API, balancing feature delivery, bug fixing, and performance optimization.',
+          'Migrated legacy monolithic APIs into microservice-oriented backend services using Flask and MySQL for GAIA Agent v2, gaining hands-on experience in service boundaries and migration trade-offs.',
+          'Managed AWS-based cloud deployment and Dockerized backend services on Ubuntu-based environments, connecting development work with operational ownership.',
+          'Improved BIGRR API, a JavaScript-based internal dashboard for hospitality operations, and refactored legacy code using clearer design patterns.',
+        ],
+      },
     ],
     skills: [
       'Python',
       'FastAPI',
       'TypeScript',
       'Redis',
-      'REST API',
-      'Prompt Engineering',
+      'OpenAI API',
+      'Flask',
+      'MySQL',
+      'AWS',
       'Docker',
-      'Chatbot Development',
     ],
   },
   {
-    slug: 'bukit-vista-backend-engineer-part-time',
-    company: 'Bukit Vista Hospitality Services',
-    companyLabel: 'Bukit Vista Hospitality Services · Part-time',
-    companyLogo: '',
-    role: 'Backend Engineer',
-    employmentType: 'Part-time',
-    period: 'Dec 2023 - Jun 2024',
-    location: 'Bali, Indonesia · Remote',
-    summary:
-      'Helped evolve hospitality backend systems from monolithic services into more modular and scalable APIs while supporting AI product delivery across operations.',
-    highlights: [
-      'Led migration efforts toward microservices-oriented backend architecture.',
-      'Designed and developed GAIA v2 with Python Flask, OpenAI integration, and Beds24 connectivity.',
-      'Redesigned relational schema in MySQL and supported deployment through AWS infrastructure.',
-      'Maintained GAIA Interface, BIGRR API, and Docker-based Linux deployments for operational stability.',
-    ],
-    skills: ['Flask', 'Python', 'AWS', 'MySQL', 'Redis', 'Node.js', 'Docker', 'API Development'],
-  },
-  {
-    slug: 'bukit-vista-backend-engineer-intern',
-    company: 'Bukit Vista Hospitality Services',
-    companyLabel: 'Bukit Vista Hospitality Services · Internship',
-    companyLogo: '',
-    role: 'Backend Engineer Intern',
-    employmentType: 'Internship',
-    period: 'Sep 2023 - Dec 2023',
-    location: 'Bali, Indonesia · Remote',
-    summary:
-      'Supported backend refactoring, internal tools maintenance, and the early architecture work behind Bukit Vista’s AI agent initiatives.',
-    highlights: [
-      'Refactored legacy BIGRR API code to improve structure, readability, and maintainability.',
-      'Handled bug fixing and maintenance for BIGRR API and the first version of GAIA.',
-      'Contributed to early GAIA v2 architecture and prompt engineering discussions.',
-      'Collaborated with non-technical teams to explore practical AI use cases for daily operations.',
-    ],
-    skills: ['Python', 'JavaScript', 'Redis', 'Node.js', 'Prompt Engineering', 'REST API'],
-  },
-  {
-    slug: 'ugm-teaching-assistant',
+    slug: 'ugm-teaching-laboratory-assistant',
     company: 'Universitas Gadjah Mada',
-    companyLabel: 'Universitas Gadjah Mada · Part-time',
-    companyLogo: '',
-    role: 'Teaching Assistant',
-    employmentType: 'Part-time',
+    role: 'Teaching Assistant and Laboratory Assistant (Part-time)',
     period: 'Aug 2022 - Dec 2023',
-    location: 'Sleman, Yogyakarta, Indonesia · On-site',
-    summary:
-      'Supported teaching for foundational programming and security-related coursework while mentoring students through labs, assignments, and class sessions.',
-    highlights: [
-      'Guided students through core C++ programming concepts in theory and practical sessions.',
-      'Assessed assignments, quizzes, and programming exercises to support evaluation.',
-      'Assisted lecturers in class management and occasionally led sessions independently.',
-      'Supported courses including Basic Programming and Cryptography & Information Security.',
+    location: 'Yogyakarta, Indonesia',
+    summary: '',
+    groups: [
+      {
+        title: 'Key Contributions',
+        highlights: [
+          'Guided students in programming, cryptography, and information security courses using C++ through theory, practical sessions, assignments, quizzes, and project consultations.',
+          'Assisted lecturers with classroom management, occasionally led classes, evaluated programming assignments and lab work, and provided technical mentorship.',
+        ],
+      },
     ],
-    skills: ['C++', 'Problem Solving', 'Code Review', 'Cryptography', 'Linux'],
+    skills: [
+      'C++',
+      'Cryptography',
+      'Information Security',
+      'Technical Mentorship',
+    ],
   },
   {
-    slug: 'ugm-laboratory-assistant',
-    company: 'Universitas Gadjah Mada',
-    companyLabel: 'Universitas Gadjah Mada · Part-time',
-    companyLogo: '',
-    role: 'Laboratory Assistant',
-    employmentType: 'Part-time',
-    period: 'Aug 2022 - Dec 2023',
-    location: 'Sleman, Yogyakarta, Indonesia · On-site',
-    summary:
-      'Provided lab support for foundational programming classes, helping students understand concepts and complete practical work effectively.',
-    highlights: [
-      'Assisted students during lab sessions and practical programming exercises.',
-      'Evaluated assignments and quizzes to support lecturer assessment needs.',
-      'Provided in-class support and occasionally substituted for lecturers.',
-      'Supported Programming Laboratory I with emphasis on programming fundamentals.',
+    slug: 'gadjah-mada-robotic-team',
+    company: 'Gadjah Mada Robotic Team',
+    role: 'Software Programmer (Contract)',
+    period: 'Feb 2021 - Aug 2022',
+    location: 'Yogyakarta, Indonesia',
+    summary: '',
+    groups: [
+      {
+        title: 'Key Contributions',
+        highlights: [
+          'Built core modules for robot mechanics and dynamics to enable smooth movement and precise control.',
+          'Developed computer vision systems with OpenCV to detect the ball, teammates, opponents, and field boundaries.',
+          'Implemented inter-robot communication using gRPC and built interfaces for communication with the base station.',
+          'Created real-time path planning algorithms, robot strategy modules, and ROS-based integration for coordinated operation.',
+          'Built a Qt monitoring dashboard to visualize robot status and performance; used ROS, Qt, Boost, OpenCV, C++, Python, and gRPC.',
+        ],
+      },
     ],
-    skills: ['C++', 'Competitive Programming', 'Problem Solving', 'Linux', 'Code Review'],
+    skills: [
+      'C++',
+      'Python',
+      'ROS',
+      'Qt',
+      'Boost',
+      'OpenCV',
+      'gRPC',
+    ],
   },
 ]

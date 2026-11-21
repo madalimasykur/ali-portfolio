@@ -1,6 +1,7 @@
 export type Skill = {
   name: string
-  logo?: string
+  logo: string
+  invertLogo?: boolean
   fallback: string
 }
 
@@ -11,177 +12,203 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: 'Languages',
+    title: 'Programming Languages',
     items: [
       {
-        name: 'Go',
+        name: 'Golang',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
-        fallback: 'Go',
+        fallback: 'Golang',
       },
       {
         name: 'Python',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-        fallback: 'Py',
+        fallback: 'Python',
       },
       {
         name: 'JavaScript',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-        fallback: 'JS',
+        fallback: 'JavaScript',
       },
       {
         name: 'TypeScript',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-        fallback: 'TS',
+        fallback: 'TypeScript',
       },
       {
         name: 'Java',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        fallback: 'JV',
+        fallback: 'Java',
       },
       {
-        name: 'C/C++',
+        name: 'C',
+        logo: '/icons/skills/c.svg',
+        fallback: 'C',
+      },
+      {
+        name: 'C++',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
         fallback: 'C++',
       },
-    ],
-  },
-  {
-    title: 'Web',
-    items: [
       {
-        name: 'Next.js',
-        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/nextdotjs.svg',
-        fallback: 'Nx',
-      },
-      {
-        name: 'React',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-        fallback: 'Re',
-      },
-      {
-        name: 'Express.js',
-        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/express.svg',
-        fallback: 'EX',
+        name: 'PHP',
+        logo: '/icons/skills/php.svg',
+        fallback: 'PHP',
       },
     ],
   },
   {
-    title: 'Cloud',
+    title: 'Backend Frameworks',
     items: [
       {
-        name: 'Google Cloud Platform',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg',
-        fallback: 'GCP',
+        name: 'Express.js (Node.js)',
+        invertLogo: true,
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/express/express-original.svg',
+        fallback: 'Express.js',
       },
       {
-        name: 'Amazon Web Services',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-        fallback: 'AWS',
-      },
-    ],
-  },
-  {
-    title: 'Frameworks',
-    items: [
-      {
-        name: 'Flask',
-        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/flask.svg',
-        fallback: 'Fl',
+        name: 'Chi (Golang)',
+        logo: 'https://github.com/go-chi.png?size=64',
+        fallback: 'Chi',
       },
       {
         name: 'FastAPI',
+        invertLogo: true,
         logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/fastapi.svg',
-        fallback: 'FA',
+        fallback: 'FastAPI',
       },
       {
-        name: 'Next.js',
-        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/nextdotjs.svg',
-        fallback: 'Nx',
-      },
-      {
-        name: 'Chi',
-        fallback: 'Chi',
+        name: 'Flask',
+        invertLogo: true,
+        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/flask.svg',
+        fallback: 'Flask',
       },
     ],
   },
   {
-    title: 'Databases',
+    title: 'Data and Databases',
     items: [
-      {
-        name: 'MongoDB',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-        fallback: 'MG',
-      },
       {
         name: 'PostgreSQL',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-        fallback: 'PG',
+        fallback: 'PostgreSQL',
       },
       {
         name: 'MySQL',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-        fallback: 'MY',
+        fallback: 'MySQL',
       },
       {
         name: 'Redis',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
-        fallback: 'RD',
+        fallback: 'Redis',
       },
       {
-        name: 'ChromaDB',
-        fallback: 'CHR',
+        name: 'MongoDB',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+        fallback: 'MongoDB',
       },
     ],
   },
   {
-    title: 'Integration',
+    title: 'Messaging',
     items: [
-      {
-        name: 'IBM App Connect Enterprise',
-        fallback: 'ACE',
-      },
-      {
-        name: 'IBM API Connect',
-        fallback: 'API',
-      },
       {
         name: 'Kafka',
+        invertLogo: true,
         logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/apachekafka.svg',
-        fallback: 'KF',
+        fallback: 'Kafka',
+      },
+      {
+        name: 'RabbitMQ',
+        logo: '/icons/skills/rabbitmq.svg',
+        fallback: 'RabbitMQ',
       },
     ],
   },
   {
-    title: 'Observability',
+    title: 'Deployment',
     items: [
       {
-        name: 'Prometheus',
-        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/prometheus.svg',
-        fallback: 'PM',
+        name: 'Docker',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+        fallback: 'Docker',
+      },
+      {
+        name: 'Podman',
+        logo: '/icons/skills/podman.svg',
+        fallback: 'Podman',
+      },
+      {
+        name: 'Kubernetes',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg',
+        fallback: 'Kubernetes',
+      },
+      {
+        name: 'AWS',
+        logo: '/icons/skills/amazonwebservices.svg',
+        fallback: 'AWS',
+      },
+      {
+        name: 'GCP',
+        logo: '/icons/skills/googlecloud.svg',
+        fallback: 'GCP',
+      },
+    ],
+  },
+  {
+    title: 'Observability dan Monitoring',
+    items: [
+      {
+        name: 'OpenTelemetry',
+        invertLogo: true,
+        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/opentelemetry.svg',
+        fallback: 'OpenTelemetry',
       },
       {
         name: 'Grafana',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg',
-        fallback: 'GF',
+        fallback: 'Grafana',
       },
       {
-        name: 'OpenTelemetry',
-        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/opentelemetry.svg',
-        fallback: 'OT',
-      },
-      {
-        name: 'Elasticsearch',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg',
-        fallback: 'ES',
+        name: 'Prometheus',
+        invertLogo: true,
+        logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/prometheus.svg',
+        fallback: 'Prometheus',
       },
       {
         name: 'Datadog',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datadog/datadog-original.svg',
-        fallback: 'DD',
+        fallback: 'Datadog',
+      },
+    ],
+  },
+  {
+    title: 'Linux',
+    items: [
+      {
+        name: 'Linux',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+        fallback: 'Linux',
       },
       {
-        name: 'Vector',
-        fallback: 'VC',
+        name: 'Fedora',
+        logo: '/icons/skills/fedora.svg',
+        fallback: 'Fedora',
+      },
+      {
+        name: 'Ubuntu',
+        logo: '/icons/skills/ubuntu.svg',
+        fallback: 'Ubuntu',
+      },
+      {
+        name: 'Debian',
+        logo: '/icons/skills/debian.svg',
+        fallback: 'Debian',
+      },
+      {
+        name: 'RHEL',
+        logo: '/icons/skills/redhat.svg',
+        fallback: 'RHEL',
       },
     ],
   },
@@ -189,38 +216,47 @@ export const skillGroups: SkillGroup[] = [
     title: 'Tools',
     items: [
       {
+        name: 'Bash',
+        invertLogo: true,
+        logo: '/icons/skills/bash.svg',
+        fallback: 'Bash',
+      },
+      {
+        name: 'SSH',
+        invertLogo: true,
+        logo: '/icons/skills/ssh.svg',
+        fallback: 'SSH',
+      },
+      {
         name: 'Git',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
         fallback: 'Git',
       },
       {
-        name: 'Postman',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg',
-        fallback: 'PM',
+        name: 'React',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+        fallback: 'React',
       },
       {
-        name: 'Docker',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-        fallback: 'DK',
+        name: 'ROS',
+        invertLogo: true,
+        logo: '/icons/skills/ros.svg',
+        fallback: 'ROS',
       },
       {
-        name: 'Kubernetes',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg',
-        fallback: 'Kube'
+        name: 'OpenCV',
+        logo: '/icons/skills/opencv.svg',
+        fallback: 'OpenCV',
       },
       {
-        name: 'Linux',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-        fallback: 'SH',
+        name: 'gRPC',
+        logo: '/icons/skills/grpc.svg',
+        fallback: 'gRPC',
       },
       {
-        name: 'Node.js',
-        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-        fallback: 'ND',
-      },
-      {
-        name: 'OpenAI API',
-        fallback: 'AI',
+        name: 'Qt',
+        logo: '/icons/skills/qt.svg',
+        fallback: 'Qt',
       },
     ],
   },

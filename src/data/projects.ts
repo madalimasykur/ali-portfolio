@@ -1,44 +1,33 @@
+import { siteConfig } from '@/config/site'
+
 export type ProjectItem = {
   index: string
   title: string
   type: string
   summary: string
+  repositoryUrl: string
 }
 
 export const projectItems: ProjectItem[] = [
   {
     index: '01',
-    title: 'Lorem Project Alpha',
-    type: 'Brand Site',
-    summary:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    title: 'Deployment and Infrastructure Lab',
+    repositoryUrl: siteConfig.repositories.observability,
+    type: 'Infrastructure',
+    summary: 'Exploring end-to-end deployment of containerized systems, including container registries, SFTP servers, observability tooling, and supporting services. Deploying a travel application as a learning project with Podman and exposing selected services securely through Cloudflare Tunnel.',
   },
   {
     index: '02',
-    title: 'Ipsum Interface Beta',
-    type: 'Web App',
-    summary:
-      'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    title: 'Wood Audio Inspection Application',
+    repositoryUrl: siteConfig.repositories.woodTest,
+    type: 'Desktop Application',
+    summary: 'Developing a Python and Qt application for audio-data processing and visualization to support wood inspection workflows, combining desktop UI development, signal/data processing, and practical engineering experimentation.',
   },
   {
     index: '03',
-    title: 'Dolor System Gamma',
-    type: 'Creative Code',
-    summary:
-      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  },
-  {
-    index: '04',
-    title: 'Sit Amet Delta',
-    type: 'Portfolio',
-    summary:
-      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    title: 'Portfolio Website',
+    repositoryUrl: siteConfig.repositories.portfolio,
+    type: 'Web Application',
+    summary: 'Built and deployed a Next.js portfolio on Vercel with a custom domain, demonstrating end-to-end ownership from application code to public delivery.',
   },
 ]
-
-export const projectsStatus = {
-  label: 'Under Maintenance',
-  title: 'This projects section is currently under maintenance.',
-  description:
-    'This section is being refreshed and will be updated with selected works soon.',
-}

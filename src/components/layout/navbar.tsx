@@ -2,12 +2,14 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import MobileNav from '@/components/layout/MobileNav'
 
 const navItems = [
   { label: 'Skills', href: '/#skills' },
   { label: 'Experience', href: '/#experience' },
-  { label: 'Education', href: '/#education' },
   { label: 'Projects', href: '/#projects' },
+  { label: 'Education', href: '/#education' },
+  { label: 'Activities', href: '/#activities' },
   { label: 'Contact', href: '/#contact' },
 ]
 
@@ -30,24 +32,25 @@ export default function Navbar() {
           : 'border-transparent bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:px-10">
         <Link href="/#home" className="space-y-0.5">
-          <p className="text-sm uppercase tracking-[0.24em] text-(--color-text)">
+          <p className="nav-brand uppercase tracking-[0.12em] text-(--color-text)">
             Ahmad Ali Masykur
           </p>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="font-mono text-[11px] uppercase tracking-[0.3em] text-(--color-muted) transition hover:text-(--color-text)"
+              className="font-mono nav-link uppercase tracking-[0.12em] text-(--color-muted) transition hover:text-(--color-text)"
             >
               {item.label}
             </Link>
           ))}
         </nav>
+        <MobileNav items={navItems} />
       </div>
     </header>
   )
