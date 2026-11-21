@@ -1,0 +1,3 @@
+# Example only: add this rule before the final http_status:404 rule.
+- hostname: madalimasykur.my.id
+  service: http://madalimasykur.mylab.local:3500

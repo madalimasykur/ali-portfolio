@@ -97,6 +97,102 @@ This project currently uses:
 
 This project is ready to deploy on Vercel.
 
+### Local Container
+
+Build and run with Compose:
+
+```bash
+podman compose up -d --build
+```
+
+View logs or stop the service:
+
+```bash
+podman compose logs -f portfolio
+podman compose down
+```
+
+The equivalent manual commands are shown below.
+
+Build the production image:
+
+```bash
+podman build -t registry.madalimasykur.my.id/madalimasykur/ali-portfolio:latest .
+```
+
+Run the container and publish it on port `3500`:
+
+```bash
+podman run --rm --name ali-portfolio -p 3500:3000 registry.madalimasykur.my.id/madalimasykur/ali-portfolio:latest
+```
+
+Open `http://localhost:3500`. In another terminal, inspect the container with:
+
+```bash
+podman ps
+podman logs -f ali-portfolio
+```
+
+Docker users can run the same commands by replacing `podman` with `docker`.
+
+### Start at Boot with Podman Quadlet
+
+The repository includes `deploy/quadlet/ali-portfolio.container`. Install it as
+a rootless user unit:
+
+```bash
+mkdir -p ~/.config/containers/systemd
+cp deploy/quadlet/ali-portfolio.container ~/.config/containers/systemd/
+systemctl --user daemon-reload
+systemctl --user start ali-portfolio.service
+systemctl --user status ali-portfolio.service
+```
+
+Allow the user service manager to start during boot, even before an interactive
+login:
+
+```bash
+sudo loginctl enable-linger "$USER"
+```
+
+If the registry requires authentication, use a persistent auth file before
+starting the unit:
+
+```bash
+mkdir -p ~/.config/containers
+podman login --authfile ~/.config/containers/auth.json registry.madalimasykur.my.id
+```
+
+The Quadlet publishes `3500:3000`, restarts the container after failures, and
+adds the registry auto-update label. To enable periodic image updates:
+
+```bash
+systemctl --user enable --now podman-auto-update.timer
+```
+
+### Cloudflare Tunnel Example
+
+The repository only provides the example ingress snippet at
+`deploy/cloudflared/ingress.yml.example`; it does not install or modify the
+machine's Cloudflared configuration. The example maps `madalimasykur.my.id` to
+`http://madalimasykur.mylab.local:3500` and must be placed before the final
+`http_status:404` rule in the active tunnel configuration.
+
+For a system-level setup using `/etc/cloudflared/config.yml`, example validation
+and restart commands are:
+
+```bash
+cloudflared --config /etc/cloudflared/config.yml tunnel ingress validate
+sudo systemctl restart cloudflared
+sudo systemctl status cloudflared
+```
+
+Verify the application locally before testing the public hostname:
+
+```bash
+curl --fail http://madalimasykur.mylab.local:3500
+```
+
 ### Vercel Dashboard
 
 1. Import the GitHub repository into Vercel.
