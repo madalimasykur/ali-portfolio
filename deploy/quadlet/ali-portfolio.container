@@ -6,6 +6,8 @@ After=network-online.target
 [Container]
 Image=registry.madalimasykur.my.id/madalimasykur/ali-portfolio:latest
 ContainerName=ali-portfolio
+# Replace this placeholder with the absolute path to the external environment file.
+EnvironmentFile=/path/to/ali-portfolio.env
 PublishPort=3500:3000
 Pull=missing
 AutoUpdate=registry
